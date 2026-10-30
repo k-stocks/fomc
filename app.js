@@ -1,7 +1,7 @@
 'use strict';
 
 // FRED 시계열과 Yahoo Finance 일봉 데이터를 직접 받아 요약·차트를 그립니다.
-const PROXY_BASE = 'https://fomc.hundprint.workers.dev';
+const PROXY_BASE = 'https://fomc.mcraft-tiger-574.workers.dev';
 const $ = id => document.getElementById(id);
 const blank = '—';
 
@@ -39,7 +39,7 @@ const rows = [
   ]],
   ['시간당 평균 임금', [
     {id:'wage',name:'시간당 평균 임금',source:'fred',ticker:'CES0500000003',unit:'달러',decimals:2},
-    {id:'wageyoy',name:'전년 대비 상승률 (Average Hourly Earnings)',source:'fred',ticker:'CES0500000003',unit:'%',decimals:2,rateSeries:'yearOverYear',basisShort:'전년 대비',basisDescription:'Average Hourly Earnings · 전년 대비'}
+    {id:'wageyoy',name:'시간당 평균 임금 전년 대비 상승률',source:'fred',ticker:'CES0500000003',unit:'%',decimals:2,rateSeries:'yearOverYear',basisShort:'전년 대비',basisDescription:'Average Hourly Earnings · 전년 대비'}
   ]],
   ['실업수당 청구건수', [
     {id:'icsa',name:'신규 실업수당 청구건수',source:'fred',ticker:'ICSA',unit:'건',decimals:0},
