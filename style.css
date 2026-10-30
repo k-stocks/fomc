@@ -2,18 +2,11 @@
 @media(max-width:760px){.app{padding:14px 11px 28px}header{margin-bottom:13px}.brand b{font-size:17px}.tools{gap:7px}.tools span{font-size:10px}.intro{padding:15px;display:block}.intro h1{font-size:18px}.intro p{font-size:11px;line-height:1.5}.intro-meta{margin-top:11px}.summary{padding:15px 10px}.section-heading h2{font-size:16px}.section-heading>small{font-size:9px;text-align:right;max-width:52%}.summary-row{padding:9px 0}.metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.metrics.single{grid-template-columns:minmax(0,1fr)}.metrics.double{grid-template-columns:repeat(2,minmax(0,1fr))}.metrics.triple{grid-template-columns:repeat(3,minmax(0,1fr))}.metrics.quadruple{grid-template-columns:repeat(4,minmax(0,1fr))}.metrics.triple .metric{display:flex;flex-direction:column;align-items:stretch}.metrics.triple .metric-change{text-align:left}.metric{padding:7px 7px;gap:4px}.metric-name{font-size:10px}.metric-source{font-size:7px}.metric-value{font-size:13px}.metric-change{font-size:9.6px}.chart-grid{grid-template-columns:1fr;gap:10px}.chart-area{height:205px}.chart-quote{gap:7px}.chart-latest{font-size:15px}}
 @media(max-width:380px){.metrics,.metrics.double{grid-template-columns:1fr}.metrics.triple{grid-template-columns:repeat(3,minmax(0,1fr))}.metrics.quadruple{grid-template-columns:repeat(4,minmax(0,1fr))}.metrics.triple .metric{display:flex;flex-direction:column;align-items:stretch}.metrics.triple .metric-change{text-align:left}.metric{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}.metric-top{grid-column:1/-1}.metric-value{grid-column:1}.metric-change{grid-column:2;grid-row:2;text-align:right}}
 
-/* 신규·계속 실업수당 청구건수는 요약과 그래프를 항상 한 줄에 나란히 표시 */
+/* 두 지표 요약은 PC와 모바일 모두 한 줄에 나란히 표시 */
 .claims-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-.claims-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-@media(max-width:380px){.claims-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}.claims-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.claims-metrics .metric{display:flex;flex-direction:column;align-items:stretch}.claims-metrics .metric-change{text-align:left}}
-
-
-/* 소비·심리: 요약은 두 지표씩 두 줄, 그래프는 항상 2열 */
 .consumer-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-.consumer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-@media(max-width:380px){.consumer-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}.consumer-metrics .metric{display:flex;flex-direction:column;align-items:stretch}.consumer-metrics .metric-change{text-align:left}}
-
-/* 국제 유가: WTI와 브렌트유 요약 및 그래프를 마지막에 2열로 나란히 표시 */
 .oil-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-.oil-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-@media(max-width:380px){.oil-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}.oil-metrics .metric{display:flex;flex-direction:column;align-items:stretch}.oil-metrics .metric-change{text-align:left}.oil-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* 그래프는 기본 PC 2열, 모바일 1열을 공통 적용합니다.
+   개별 그룹의 2열 강제 규칙을 두지 않아 기준금리 그래프와 같은 반응형 레이아웃을 사용합니다. */
+@media(max-width:760px){.chart-grid{grid-template-columns:minmax(0,1fr);gap:10px}}
