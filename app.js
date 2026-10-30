@@ -1,7 +1,7 @@
 'use strict';
 
 // FRED 시계열과 Yahoo Finance 일봉 데이터를 직접 받아 요약·차트를 그립니다.
-const PROXY_BASE = 'https://fomc.hundprint.workers.dev';
+const PROXY_BASE = 'https://fomc.mcraft-tiger-574.workers.dev';
 const $ = id => document.getElementById(id);
 const blank = '—';
 
@@ -66,6 +66,10 @@ const rows = [
   ['달러·금리선물', [
     {id:'dxy',name:'달러 인덱스',source:'yahoo',ticker:'DX-Y.NYB',unit:'지수',decimals:2},
     {id:'fedfuture',name:'기준금리 선물 내재금리',source:'yahoo',ticker:'ZQ=F',unit:'%',decimals:2,transform:v=>100-v}
+  ]],
+  ['국제 유가', [
+    {id:'wti',name:'WTI 유가',source:'fred',ticker:'DCOILWTICO',unit:'달러/배럴',decimals:2,basisDescription:'미국 에너지정보청(EIA) · 일일 현물가격 · 달러/배럴'},
+    {id:'brent',name:'브렌트유 유가',source:'fred',ticker:'DCOILBRENTEU',unit:'달러/배럴',decimals:2,basisDescription:'미국 에너지정보청(EIA) · 일일 현물가격 · 달러/배럴'}
   ]],
 ];
 const all = rows.flatMap((row, rowIndex) => row[1].map(item => ({...item,group:row[0],rowIndex})));
@@ -147,7 +151,7 @@ function makeSummary() {
     chunks.forEach(chunk=>{
       const line=document.createElement('div'); line.className='summary-row';
       const metrics=document.createElement('div');
-      metrics.className=`metrics ${chunk.length===1?'single':chunk.length===2?'double':chunk.length===4?'quadruple':'triple'}${group==='실업수당 청구건수'?' claims-metrics':''}${group==='소비·심리'?' consumer-metrics':''}`;
+      metrics.className=`metrics ${chunk.length===1?'single':chunk.length===2?'double':chunk.length===4?'quadruple':'triple'}${group==='실업수당 청구건수'?' claims-metrics':''}${group==='소비·심리'?' consumer-metrics':''}${group==='국제 유가'?' oil-metrics':''}`;
       chunk.forEach(item=>{
         const chip=document.createElement('article'); chip.className='metric'; chip.dataset.summaryId=item.id;
         const top=document.createElement('div'); top.className='metric-top';
@@ -169,7 +173,7 @@ function makeCharts() {
     const section=document.createElement('section'); section.className='chart-group';
     const heading=document.createElement('div'); heading.className='section-heading group-heading';
     heading.innerHTML=`<div><span class="eyebrow">INDICATOR GROUP ${String(index+1).padStart(2,'0')}</span><h2>${group}</h2></div>`;
-    const grid=document.createElement('div'); grid.className=`chart-grid${group==='실업수당 청구건수'?' claims-grid':''}${group==='소비·심리'?' consumer-grid':''}`;
+    const grid=document.createElement('div'); grid.className=`chart-grid${group==='실업수당 청구건수'?' claims-grid':''}${group==='소비·심리'?' consumer-grid':''}${group==='국제 유가'?' oil-grid':''}`;
     items.forEach(item=>{
       const card=document.createElement('article'); card.className='chart-card';
       const head=document.createElement('div'); head.className='chart-head';

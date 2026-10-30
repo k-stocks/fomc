@@ -12,3 +12,8 @@
 .consumer-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 .consumer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 @media(max-width:380px){.consumer-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}.consumer-metrics .metric{display:flex;flex-direction:column;align-items:stretch}.consumer-metrics .metric-change{text-align:left}}
+
+/* 국제 유가: WTI와 브렌트유 요약 및 그래프를 마지막에 2열로 나란히 표시 */
+.oil-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.oil-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(max-width:380px){.oil-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}.oil-metrics .metric{display:flex;flex-direction:column;align-items:stretch}.oil-metrics .metric-change{text-align:left}.oil-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
