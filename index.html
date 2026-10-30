@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f3f5f9">
+<title>FOMC 경제지표</title>
+<link rel="apple-touch-icon" href="./Stock.png">
+<link rel="stylesheet" href="style.css?v=15">
+<script src="https://unpkg.com/lightweight-charts@4.2.2/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="app">
+<header><div class="brand"><i></i><div><b>FOMC 경제지표</b><small>FOMC ECONOMIC DASHBOARD</small></div></div><div class="tools"><span id="updated">데이터 확인 전</span><button id="refresh" title="데이터 새로고침" aria-label="데이터 새로고침">↻</button></div></header>
+<main>
+<section class="intro card"><div><span class="eyebrow">U.S. MACRO ECONOMY</span><h1>연준 정책과 미국 경제 흐름</h1><p>주요 경제지표의 최신 발표 수치와 과거 추이를 한 화면에서 확인합니다.</p></div><div class="intro-meta"><span class="live-dot"></span><span id="status">데이터 연결 준비 중</span></div></section>
+<section class="summary card"><div class="section-heading"><div><span class="eyebrow">ECONOMIC SNAPSHOT</span><h2>FOMC 주요 지표</h2></div><small>최신 발표값 · 직전 발표 대비 등락 · 등락률</small></div><div id="summaryRows" class="summary-rows"></div></section>
+<div class="section-heading chart-section-heading"><div><span class="eyebrow">HISTORICAL TRENDS</span><h2>경제지표 그래프</h2></div><small>원자료 시계열 · 지표별 차트</small></div>
+<section id="charts" class="charts"></section>
+<footer>자료는 FRED, 미국 연방준비제도 및 Yahoo Finance의 공개 시계열 기준입니다. This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.  지표별 발표 주기와 업데이트 시점이 다릅니다. 투자 판단 전 원자료와 발표 내용을 확인하세요.</footer>
+</main></div><script src="app.js?v=15"></script>
+</body></html>
